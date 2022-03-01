@@ -27,6 +27,7 @@ export class AuthComponent implements OnInit {
     console.log(form)
     const email = form.value.email;
     const password = form.value.password;
+
   }
 
 }
