@@ -34,7 +34,15 @@ export class ShoppingEditComponent implements OnInit {
     )
   }
   onSubmit(f){
-
+    if(this.editMode){
+      this.editedItem.name = f.value.name
+      this.editedItem.amount = f.value.amount
+      this.shoppingListService.updateIngredient(this.editedItem,this.editedItemIndex)
+      this.editMode= false
+    }else{
+      this.shoppingListService.addIngredient(new Ingredient(f.value.name,f.value.amount))
+    }
+      this.slForm.reset()
   }
 
   onDelete(){

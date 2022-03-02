@@ -1,6 +1,7 @@
+import { Ingredient } from 'src/app/shared/ingredient.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Ingredient } from './shared/ingredient.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,17 @@ export class ShoppingListService {
       this.ingredients.splice(index,1)
       console.log(this.ingredients)
       this.ingredientsChanged.next(this.ingredients)
+  }
+
+  addIngredient(ingredient:Ingredient){
+    this.ingredients.push(ingredient);
+
+    this.ingredientsChanged.next(this.ingredients)
+  }
+
+  updateIngredient(ingredient:Ingredient,index:number){
+    this.ingredients[index]= ingredient
+    this.ingredientsChanged.next(this.ingredients)
+
   }
 }
