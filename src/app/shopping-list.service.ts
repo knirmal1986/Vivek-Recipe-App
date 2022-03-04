@@ -40,4 +40,9 @@ export class ShoppingListService {
     this.ingredientsChanged.next(this.ingredients)
 
   }
+
+  addIngredients(ingredients:Ingredient[]){
+        this.ingredients.push(...ingredients)
+        this.ingredientsChanged.next(this.ingredients)
+  }
 }
